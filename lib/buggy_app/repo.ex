@@ -6,15 +6,18 @@ defmodule BuggyApp.Repo do
 
   @doc "The URL to reach the database."
   defp url(:dev) do
-    "ecto://user:pass@localhost/buggy_app_repo_dev"
+    System.get_env("BUGGY_APP_DATABASE_DEV_URL")
+    || "ecto://user:pass@localhost/buggy_app_repo_dev"
   end
 
   defp url(:test) do
-    "ecto://user:pass@localhost/buggy_app_repo_test?size=1&max_overflow=0"
+    System.get_env("BUGGY_APP_DATABASE_TEST_URL")
+    || "ecto://user:pass@localhost/buggy_app_repo_test?size=1&max_overflow=0"
   end
 
   defp url(:prod) do
-    "ecto://user:pass@localhost/buggy_app_repo_prod"
+    System.get_env("BUGGY_APP_DATABASE_URL")
+    || "ecto://user:pass@localhost/buggy_app_repo_prod"
   end
 
   @doc "The priv directory to load migrations and metadata."
