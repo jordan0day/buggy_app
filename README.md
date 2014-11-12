@@ -1,0 +1,10 @@
+# BuggyApp
+
+Demonstrates a simple Phoenix application with one Ecto Repo and one Phoenix Topic process.
+
+To try it out, do:
+
+- mix deps.get
+- MIX_ENV=test mix etco.create BuggyApp.Repo
+- MIX_ENV=test mix ecto.migrate BuggyApp.Repo
+- mix test
